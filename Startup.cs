@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Bookish.DbModels;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,7 +12,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
-
+using Theta.Context;
+using Theta.Services;
 
 namespace Theta
 {
@@ -39,6 +39,10 @@ namespace Theta
             services.AddDbContext<RetailContext>(
                 options => options.UseSqlServer(@"Server=localhost,1433;Database=RetailDb;User Id=sa;Password=Password123;")
                 );
+
+            services.AddTransient<IOrderService, OrderService>();
+            services.AddTransient<ICustomerService, CustomerService>();
+            services.AddTransient<IProductService, ProductService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

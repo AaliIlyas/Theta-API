@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Theta.Models.Database;
 
-namespace Bookish.DbModels
+namespace Theta.Context
 {
     public class RetailContext : DbContext
     {
@@ -9,8 +9,8 @@ namespace Bookish.DbModels
         {
         }
 
-        public DbSet<Customers> Customers { get; set; }
-        public DbSet<Products> Members { get; set; }
-        public DbSet<Orders> CheckedOutBooks { get; set; }
+        public DbSet<Customer> Customer { get; set; }
+        public DbSet<Product> Product { get; set; }
+        public DbSet<Order> Order { get; set; }
     }
 }
