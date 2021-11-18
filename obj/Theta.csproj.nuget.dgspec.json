@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\.Training\\Theta\\Theta.csproj": {}
+    "C:\\.Training\\Theta project\\Theta\\Theta.csproj": {}
   },
   "projects": {
-    "C:\\.Training\\Theta\\Theta.csproj": {
+    "C:\\.Training\\Theta project\\Theta\\Theta.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\.Training\\Theta\\Theta.csproj",
+        "projectUniqueName": "C:\\.Training\\Theta project\\Theta\\Theta.csproj",
         "projectName": "Theta",
-        "projectPath": "C:\\.Training\\Theta\\Theta.csproj",
+        "projectPath": "C:\\.Training\\Theta project\\Theta\\Theta.csproj",
         "packagesPath": "C:\\Users\\Ilyas Ali\\.nuget\\packages\\",
-        "outputPath": "C:\\.Training\\Theta\\obj\\",
+        "outputPath": "C:\\.Training\\Theta project\\Theta\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ilyas Ali\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "FakeItEasy": {
+              "target": "Package",
+              "version": "[7.2.0, )"
+            },
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[6.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.12, )"

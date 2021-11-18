@@ -6,7 +6,7 @@ namespace Theta.Services
 {
     public interface IOrderService
     {
-        void AddOrder(List<OrderRequestModel> request);
+        void AddOrder(OrderRequestModel request);
         void DeleteOrder(int id);
         IEnumerable<Order> GetAllOrders();
     }

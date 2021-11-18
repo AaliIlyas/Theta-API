@@ -23,7 +23,7 @@ namespace Theta.Data
                 },
                 new Customer
                 {
-                    FirstName = "jack",
+                    FirstName = "Jack",
                     LastName = "Black"
                 }
             };

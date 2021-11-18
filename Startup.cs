@@ -26,6 +26,8 @@ namespace Theta
 
         public IConfiguration Configuration { get; }
 
+        private static string CORS_POLICY_NAME = "_thetaCorsPolicy";
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -39,6 +41,19 @@ namespace Theta
             services.AddDbContext<RetailContext>(
                 options => options.UseSqlServer(@"Server=localhost,1433;Database=RetailDb;User Id=sa;Password=Password123;")
                 );
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(CORS_POLICY_NAME, builder =>
+                {
+                    builder
+                        //.AllowAnyOrigin()
+                        .WithOrigins("http://localhost:3000")
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials();
+                });
+            });
 
             services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<ICustomerService, CustomerService>();
@@ -58,6 +73,8 @@ namespace Theta
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("_thetaCorsPolicy");
 
             app.UseAuthorization();
 

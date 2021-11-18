@@ -27,22 +27,19 @@ namespace Theta.Services
             //.FromSqlRaw<Order>("exec updated_obtain_order_with_joins");
         }
 
-        public void AddOrder(List<OrderRequestModel> request)
+        public void AddOrder(OrderRequestModel request)
         {
-            var order = request.Select(r =>
+            var customer = _context.Customer.Find(request.CustomerId);
+            var product = _context.Product.Find(request.ProductId);
+
+            var order = new Order
             {
-                var customer = _context.Customer.Find(r.CustomerId);
-                var product = _context.Product.Find(r.ProductId);
+                Customer = customer,
+                Product = product,
+                Date = DateTime.Now
+            };
 
-                return new Order
-                {
-                    Customer = customer,
-                    Product = product,
-                    Date = DateTime.Now
-                };
-            });
-
-            _context.Order.AddRange(order);
+            _context.Order.Add(order);
             _context.SaveChanges();
         }
 

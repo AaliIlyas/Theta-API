@@ -28,7 +28,7 @@ namespace Theta.Controllers
         }
 
         [HttpPost]
-        public void AddOrder(List<OrderRequestModel> order)
+        public void AddOrder(OrderRequestModel order)
         {
             _orders.AddOrder(order);
         }
